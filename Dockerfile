@@ -3,7 +3,8 @@
 # Base node image
 FROM node:20-alpine AS node
 
-RUN apk --no-cache add curl
+# Update the package index and install curl
+RUN apk update && apk add --no-cache curl
 
 RUN mkdir -p /app && chown node:node /app
 WORKDIR /app

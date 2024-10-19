@@ -230,8 +230,13 @@ const useFileHandling = (params?: UseFileHandling) => {
 
       // Check if the file type is still empty after the extension check
       if (!fileType) {
-        setError('Unable to determine file type for: ' + originalFile.name);
-        return false;
+        // setError('Unable to determine file type for: ' + originalFile.name);
+        // return false;
+        fileType = "text/plain";
+        // setError('Unable to determine file type for: ' + originalFile.name);
+        // setError('original file type: ' + originalFile.type);
+        console.log('Unable to determine file type for: ' + originalFile.name + ', mark as text/plain');
+        // return false;
       }
 
       // Replace empty type with inferred type

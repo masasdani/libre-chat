@@ -77,7 +77,8 @@ async function uploadVectors({ req, file, file_id }) {
     logger.debug('Response from embedding file', responseData);
 
     if (responseData.known_type === false) {
-      throw new Error(`File embedding failed. The filetype ${file.mimetype} is not supported`);
+      logger.warn(`file type unknown, for ${file.filename}, skipping check`);
+      //throw new Error(`File embedding failed. The filetype ${file.mimetype} is not supported`);
     }
 
     if (!responseData.status) {
